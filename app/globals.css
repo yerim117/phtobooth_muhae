@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --paper: #efede8; /* 프레임 종이색 */
+  --ink:   #1c1d1c; /* 프레임 검정 */
+  --lime:  #e2f85c; /* 프레임 형광 연두 */
+  --muted: #6b6a66;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  word-break: keep-all; /* 한글 단어 중간에서 줄바꿈 방지 */
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ── 카운트다운 숫자 ── */
+@keyframes countPop {
+  0%   { transform: scale(1.3); opacity: 0; }
+  20%  { transform: scale(1);   opacity: 1; }
+  80%  { transform: scale(1);   opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0; }
+}
+.count-anim { animation: countPop 0.9s ease-out forwards; }
+
+/* ── 흰 플래시 ── */
+@keyframes flashOut {
+  0%, 50% { opacity: 1; }
+  100%     { opacity: 0; }
+}
+.flash-anim { animation: flashOut 0.5s ease-out forwards; }
+
+/* ── 출력 (위에서 아래로 사진이 나옴) ── */
+@keyframes printOut {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+.print-anim { animation: printOut 2.2s cubic-bezier(0.45, 0, 0.25, 1) forwards; }
+
+/* ── 진행 바 줄무늬 ── */
+@keyframes stripe {
+  to { background-position: 28px 0; }
+}
+.stripe-anim {
+  background: repeating-linear-gradient(-45deg, var(--lime) 0 7px, #c9de4f 7px 14px);
+  animation: stripe 0.6s linear infinite;
+}
