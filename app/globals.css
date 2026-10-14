@@ -1,9 +1,18 @@
-@import "tailwindcss";
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 :root {
@@ -20,7 +29,8 @@ body {
 }
 
 button {
-  font-family: inherit;
+  font: inherit;
+  color: inherit;
 }
 
 /* ── 카운트다운 숫자 ── */

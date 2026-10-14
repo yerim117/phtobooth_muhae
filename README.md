@@ -2,7 +2,7 @@
 
 프레임을 고르고 2컷을 찍으면, 고른 프레임에 사진을 합성한 한 장의 인증사진을 만들어 QR로 받아 갈 수 있는 웹 포토부스입니다.
 
-- 배포: https://photobooth-muhae.vercel.app
+- 배포: https://muhae-yerim.vercel.app
 - 스택: Next.js (App Router), React, Vercel Blob, Vercel Cron
 
 ## 흐름
@@ -33,7 +33,6 @@ npm run dev
 |---|---|
 | `BLOB_READ_WRITE_TOKEN` | Vercel Blob 스토어 토큰 (스토어 연결 시 자동 생성) |
 | `CRON_SECRET` | 정리 cron 호출 인증용 |
-| `BLOB_ACCESS` | 선택. public 스토어를 쓸 때만 `public` |
 
 ## 구조
 

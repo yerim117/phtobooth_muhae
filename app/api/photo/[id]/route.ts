@@ -1,5 +1,4 @@
 import { get } from "@vercel/blob";
-import { BLOB_ACCESS } from "../../../lib/blob";
 import { FILE_NAME, PHOTO_ID_RE, photoPathname } from "../../../lib/photo";
 
 // 인증사진 이미지 전달 (private 스토어라 서버를 거쳐 내려줌)
@@ -9,7 +8,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   if (!PHOTO_ID_RE.test(id)) return new Response("not found", { status: 404 });
 
   try {
-    const result = await get(photoPathname(id), { access: BLOB_ACCESS });
+    const result = await get(photoPathname(id), { access: "private" });
     if (!result || result.statusCode !== 200) return new Response("not found", { status: 404 });
 
     const download = new URL(req.url).searchParams.get("download") === "1";

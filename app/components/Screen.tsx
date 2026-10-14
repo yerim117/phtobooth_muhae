@@ -3,11 +3,10 @@ import type { ReactNode } from "react";
 interface ScreenProps {
   children: ReactNode;
   gap?: number;
-  padding?: number | string;
 }
 
 // 내용을 세로 중앙 정렬하는 전체 화면 레이아웃
-export default function Screen({ children, gap = 24, padding = "32px 20px" }: ScreenProps) {
+export default function Screen({ children, gap = 24 }: ScreenProps) {
   return (
     <div
       style={{
@@ -18,7 +17,7 @@ export default function Screen({ children, gap = 24, padding = "32px 20px" }: Sc
         alignItems: "center",
         justifyContent: "center",
         gap,
-        padding,
+        padding: "32px 20px",
       }}
     >
       {children}

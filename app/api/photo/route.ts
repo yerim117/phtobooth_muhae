@@ -1,6 +1,5 @@
 import { randomBytes } from "node:crypto";
 import { put } from "@vercel/blob";
-import { BLOB_ACCESS } from "../../lib/blob";
 import { PHOTO_MAX_BYTES, photoPathname } from "../../lib/photo";
 
 // 합성된 인증사진(JPEG) 업로드 → QR용 ID 발급
@@ -21,7 +20,7 @@ export async function POST(req: Request) {
   const id = randomBytes(16).toString("base64url");
   try {
     await put(photoPathname(id), Buffer.from(body), {
-      access: BLOB_ACCESS,
+      access: "private",
       contentType: "image/jpeg",
       addRandomSuffix: false,
     });
